@@ -1,0 +1,31 @@
+{
+    "manifest_version": "2.0",
+    "id": "fleet_overview",
+    "type": "widget",
+    "name": "Fleet overview",
+    "namespace": "FleetOverview",
+    "version": "1.0",
+    "author": "Martin_Salazar",
+    "description": "Widget de estado de flota (hosts Windows/Linux): tarjetas por host con IP, SO, uptime y problemas activos, mas tabla de detalle de problemas.",
+    "actions": {
+        "widget.fleet_overview.view": {
+            "class": "WidgetView",
+            "view": "widget.view"
+        }
+    },
+    "widget": {
+        "name": "Fleet overview",
+        "class": "Widget",
+        "form_class": "WidgetForm",
+        "js_class": "CWidgetFleetOverview",
+        "size": {
+            "width": 12,
+            "height": 6
+        },
+        "refresh_rate": 60
+    },
+    "assets": {
+        "css": ["fleet_overview.css"],
+        "js": ["class.widget.js"]
+    }
+}

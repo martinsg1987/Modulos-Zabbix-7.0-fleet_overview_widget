@@ -1,0 +1,237 @@
+/* ---------- Variables de tema (oscuro por defecto) ---------- */
+.fo-widget-root {
+    --fo-card-bg: #262b31;
+    --fo-border: #3a424b;
+    --fo-text: #e8ebee;
+    --fo-muted: #8d99a5;
+    --fo-shadow: 0 6px 16px rgba(0, 0, 0, .35), 0 1px 3px rgba(0, 0, 0, .45);
+    --fo-shadow-hover: 0 10px 24px rgba(0, 0, 0, .5), 0 2px 6px rgba(0, 0, 0, .5);
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    color: var(--fo-text);
+}
+
+html[theme="blue-theme"] .fo-widget-root,
+html[theme="hc-light"] .fo-widget-root {
+    --fo-card-bg: #ffffff;
+    --fo-border: #d5d9de;
+    --fo-text: #1f2c33;
+    --fo-muted: #6c7986;
+    --fo-shadow: 0 4px 12px rgba(31, 44, 51, .12), 0 1px 3px rgba(31, 44, 51, .12);
+    --fo-shadow-hover: 0 8px 20px rgba(31, 44, 51, .2), 0 2px 5px rgba(31, 44, 51, .15);
+}
+
+/* ---------- Colores de acento (hex + rgb para degradados) ---------- */
+.fo-accent-ok       { --fo-accent: #59db8f; --fo-accent-rgb: 89, 219, 143; }
+.fo-accent-info     { --fo-accent: #7499ff; --fo-accent-rgb: 116, 153, 255; }
+.fo-accent-warning  { --fo-accent: #ffc859; --fo-accent-rgb: 255, 200, 89; }
+.fo-accent-average  { --fo-accent: #ffa059; --fo-accent-rgb: 255, 160, 89; }
+.fo-accent-high     { --fo-accent: #e97659; --fo-accent-rgb: 233, 118, 89; }
+.fo-accent-disaster { --fo-accent: #e45959; --fo-accent-rgb: 228, 89, 89; }
+.fo-accent-na       { --fo-accent: #97aab3; --fo-accent-rgb: 151, 170, 179; }
+
+/* ---------- Resumen superior ---------- */
+.fo-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.fo-tile {
+    background:
+        linear-gradient(135deg, rgba(var(--fo-accent-rgb), .18) 0%, rgba(var(--fo-accent-rgb), .04) 60%),
+        var(--fo-card-bg);
+    border: 1px solid var(--fo-border);
+    border-left: 4px solid var(--fo-accent);
+    border-radius: 10px;
+    padding: 10px 14px;
+    box-shadow: var(--fo-shadow);
+}
+
+.fo-tile-label {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--fo-muted);
+}
+
+.fo-tile-value {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.15;
+    color: var(--fo-accent);
+}
+
+.fo-tile-sub {
+    font-size: 12px;
+    color: var(--fo-muted);
+}
+
+/* ---------- Tarjetas de host ---------- */
+.fo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 14px;
+}
+
+.fo-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background:
+        linear-gradient(135deg, rgba(var(--fo-accent-rgb), .20) 0%, rgba(var(--fo-accent-rgb), .04) 55%),
+        var(--fo-card-bg);
+    border: 1px solid var(--fo-border);
+    border-left: 4px solid var(--fo-accent);
+    border-radius: 12px;
+    padding: 14px 16px;
+    box-shadow: var(--fo-shadow);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.fo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--fo-shadow-hover);
+}
+
+.fo-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fo-type {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: .04em;
+    color: #fff;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .35);
+}
+
+.fo-type-windows { background: linear-gradient(135deg, #4c9aff, #2b6cd4); }
+.fo-type-linux   { background: linear-gradient(135deg, #ff9f43, #e8590c); }
+.fo-type-other   { background: linear-gradient(135deg, #6b7885, #47525d); }
+
+.fo-title-wrap {
+    flex: 1;
+    min-width: 0;
+}
+
+.fo-host-name {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--fo-text);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fo-host-ip {
+    font-size: 12px;
+    color: var(--fo-muted);
+}
+
+.fo-dot {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--fo-accent);
+    box-shadow: 0 0 0 3px rgba(var(--fo-accent-rgb), .22), 0 0 10px rgba(var(--fo-accent-rgb), .7);
+}
+
+.fo-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-top: 10px;
+    border-top: 1px solid var(--fo-border);
+}
+
+.fo-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.fo-label {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--fo-muted);
+}
+
+.fo-value {
+    color: var(--fo-text);
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fo-card-footer {
+    margin-top: auto;
+}
+
+/* ---------- Badges de severidad ---------- */
+.fo-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: rgba(151, 170, 179, .16);
+    color: #97aab3;
+    border: 1px solid rgba(151, 170, 179, .35);
+}
+
+.fo-badge-ok       { background: rgba(89, 219, 143, .16);  color: #59db8f; border-color: rgba(89, 219, 143, .4); }
+.fo-badge-info     { background: rgba(116, 153, 255, .16); color: #7499ff; border-color: rgba(116, 153, 255, .4); }
+.fo-badge-warning  { background: rgba(255, 200, 89, .16);  color: #ffc859; border-color: rgba(255, 200, 89, .4); }
+.fo-badge-average  { background: rgba(255, 160, 89, .16);  color: #ffa059; border-color: rgba(255, 160, 89, .4); }
+.fo-badge-high     { background: rgba(233, 118, 89, .16);  color: #e97659; border-color: rgba(233, 118, 89, .4); }
+.fo-badge-disaster { background: rgba(228, 89, 89, .16);   color: #e45959; border-color: rgba(228, 89, 89, .4); }
+
+.fo-empty {
+    grid-column: 1 / -1;
+    color: var(--fo-muted);
+    font-size: 13px;
+    padding: 8px 0;
+}
+
+/* ---------- Tabla de problemas ---------- */
+.fo-problems-wrapper {
+    border-top: 1px solid var(--fo-border);
+    padding-top: 10px;
+}
+
+.fo-section-title {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .08em;
+    color: var(--fo-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.fo-problems-table {
+    font-size: 12px;
+}
+
+.fo-problems-table tbody tr:hover {
+    background: rgba(151, 170, 179, .08);
+}
